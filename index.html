@@ -1,687 +1,1042 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jessica Vranek | Solidity Developer & Web3 Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
     <style>
-    /* Space Theme CSS for Jessica's CV Website */
-    :root {
-        --color-space-dark: #0e0e20;
-        --color-space-darker: #06061a;
-        --color-mint: #8ae3c8;
-        --color-pink: #ff6b9e;
-        --color-light-blue: #6bcbff;
-        --color-light: #f0f5ff;
-        --color-muted: #8a91b4;
-        --font-sans: 'Montserrat', sans-serif;
-        --font-serif: 'Playfair Display', serif;
-    }
+        /* Ethereal Dreamy Space Theme CSS for Jessica's CV Website */
+        :root {
+            --color-dreamy-blue: #a8c9e0;
+            --color-dreamy-teal: #86c9c9;
+            --color-dreamy-pink: #f5bfd2;
+            --color-dreamy-purple: #c7aed4;
+            --color-soft-dark: #283548;
+            --color-gold: #e3c174;
+            --color-light-gold: #f5e3bc;
+            --color-off-white: #f9f7f3;
+            --font-sans: 'Montserrat', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
 
-    /* Stars Animation */
-    @keyframes twinkle {
-        0% { opacity: 0.3; }
-        50% { opacity: 1; }
-        100% { opacity: 0.3; }
-    }
+        /* Stars Animation */
+        @keyframes twinkle {
+            0% {
+                opacity: 0.3;
+                transform: scale(0.8);
+            }
 
-    body {
-        font-family: var(--font-sans);
-        background-color: var(--color-space-dark);
-        color: var(--color-light);
-        line-height: 1.6;
-        overflow-x: hidden;
-        position: relative;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
 
-    /* Star Background */
-    body::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: 
-            radial-gradient(1px 1px at 25px 5px, white, rgba(255, 255, 255, 0)),
-            radial-gradient(1px 1px at 50px 25px, white, rgba(255, 255, 255, 0)),
-            radial-gradient(1px 1px at 125px 20px, white, rgba(255, 255, 255, 0)),
-            radial-gradient(1.5px 1.5px at 50px 75px, white, rgba(255, 255, 255, 0)),
-            radial-gradient(2px 2px at 175px 125px, white, rgba(255, 255, 255, 0)),
-            radial-gradient(2.5px 2.5px at 300px 160px, white, rgba(255, 255, 255, 0)),
-            radial-gradient(2px 2px at 450px 25px, white, rgba(255, 255, 255, 0)),
-            radial-gradient(1.5px 1.5px at 425px 100px, white, rgba(255, 255, 255, 0)),
-            radial-gradient(1px 1px at 500px 175px, white, rgba(255, 255, 255, 0)),
-            radial-gradient(1px 1px at 650px 25px, white, rgba(255, 255, 255, 0)),
-            radial-gradient(1.5px 1.5px at 700px 100px, white, rgba(255, 255, 255, 0)),
-            radial-gradient(2px 2px at 750px 175px, white, rgba(255, 255, 255, 0));
-        background-repeat: repeat;
-        background-size: 700px 700px;
-        z-index: -1;
-    }
+            100% {
+                opacity: 0.3;
+                transform: scale(0.8);
+            }
+        }
 
-    /* Decorative Elements */
-    .star {
-        position: absolute;
-        background-color: var(--color-pink);
-        border-radius: 50%;
-        animation: twinkle 3s infinite ease-in-out;
-    }
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
 
-    .star:nth-child(odd) {
-        background-color: var(--color-mint);
-    }
+            50% {
+                transform: translateY(-10px);
+            }
 
-    .star:nth-child(3n) {
-        background-color: var(--color-light-blue);
-    }
+            100% {
+                transform: translateY(0);
+            }
+        }
 
-    /* Planets */
-    .planet {
-        position: absolute;
-        border-radius: 50%;
-        box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
-    }
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 5px rgba(227, 193, 116, 0.3);
+            }
 
-    /* Moon */
-    .moon {
-        position: absolute;
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        background: linear-gradient(45deg, var(--color-mint), #c4f0e4);
-        opacity: 0.5;
-        box-shadow: 0 0 20px rgba(138, 227, 200, 0.5);
-    }
+            50% {
+                box-shadow: 0 0 20px rgba(227, 193, 116, 0.6);
+            }
 
-    /* Links */
-    a {
-        color: var(--color-mint);
-        text-decoration: none;
-        transition: all 0.3s ease;
-    }
+            100% {
+                box-shadow: 0 0 5px rgba(227, 193, 116, 0.3);
+            }
+        }
 
-    a:hover {
-        color: var(--color-pink);
-        text-shadow: 0 0 8px rgba(255, 107, 158, 0.5);
-    }
+        body {
+            font-family: var(--font-sans);
+            background: linear-gradient(135deg, var(--color-dreamy-blue) 0%, var(--color-dreamy-teal) 35%, var(--color-dreamy-purple) 70%, var(--color-dreamy-pink) 100%);
+            color: var(--color-soft-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* Headings */
-    h1, h2, h3, h4, h5, h6 {
-        font-family: var(--font-serif);
-        font-weight: 700;
-        line-height: 1.2;
-        color: var(--color-light);
-    }
+        /* Star Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(1px 1px at 25px 5px, var(--color-gold), rgba(255, 255, 255, 0)),
+                radial-gradient(1px 1px at 50px 25px, var(--color-gold), rgba(255, 255, 255, 0)),
+                radial-gradient(1px 1px at 125px 20px, var(--color-gold), rgba(255, 255, 255, 0)),
+                radial-gradient(1.5px 1.5px at 50px 75px, var(--color-gold), rgba(255, 255, 255, 0)),
+                radial-gradient(2px 2px at 175px 125px, var(--color-gold), rgba(255, 255, 255, 0)),
+                radial-gradient(2.5px 2.5px at 300px 160px, var(--color-gold), rgba(255, 255, 255, 0)),
+                radial-gradient(2px 2px at 450px 25px, var(--color-gold), rgba(255, 255, 255, 0)),
+                radial-gradient(1.5px 1.5px at 425px 100px, var(--color-gold), rgba(255, 255, 255, 0)),
+                radial-gradient(1px 1px at 500px 175px, var(--color-gold), rgba(255, 255, 255, 0)),
+                radial-gradient(1px 1px at 650px 25px, var(--color-gold), rgba(255, 255, 255, 0)),
+                radial-gradient(1.5px 1.5px at 700px 100px, var(--color-gold), rgba(255, 255, 255, 0)),
+                radial-gradient(2px 2px at 750px 175px, var(--color-gold), rgba(255, 255, 255, 0));
+            background-repeat: repeat;
+            background-size: 700px 700px;
+            z-index: -1;
+            opacity: 0.7;
+        }
 
-    h1 {
-        font-size: 4rem;
-        margin-bottom: 1rem;
-        background: linear-gradient(to right, var(--color-mint), var(--color-pink));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-fill-color: transparent;
-        text-shadow: 0 0 15px rgba(138, 227, 200, 0.3);
-    }
+        /* Gold Star Sprinkles */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20" height="20"><polygon points="50,0 61,35 98,35 68,57 79,91 50,70 21,91 32,57 2,35 39,35" fill="%23e3c174" opacity="0.6"/></svg>');
+            background-size: 300px 300px;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.15;
+        }
 
-    h2 {
-        color: var(--color-pink);
-    }
+        /* Decorative Elements */
+        .star {
+            position: absolute;
+            background-color: transparent;
+            width: 12px;
+            height: 12px;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            background-color: var(--color-gold);
+            animation: twinkle 4s infinite ease-in-out;
+        }
 
-    /* Layout */
-    header, main, footer {
-        padding: 0 5%;
-    }
+        .star:nth-child(odd) {
+            background-color: var(--color-light-gold);
+        }
 
-    .two-column {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-    }
+        .star:nth-child(3n) {
+            width: 8px;
+            height: 8px;
+        }
 
-    @media (max-width: 768px) {
+        .star:nth-child(5n) {
+            width: 14px;
+            height: 14px;
+            animation-duration: 6s;
+        }
+
+        /* Sun and Moon */
+        .celestial {
+            position: absolute;
+            background: radial-gradient(circle, var(--color-light-gold), var(--color-gold));
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(227, 193, 116, 0.5);
+            animation: glow 4s infinite ease-in-out;
+        }
+
+        .moon {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--color-light-gold), var(--color-gold));
+            opacity: 0.8;
+            box-shadow: 0 0 20px rgba(227, 193, 116, 0.5);
+            animation: glow 4s infinite ease-in-out;
+        }
+
+        .cloud {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            filter: blur(15px);
+            animation: float 10s infinite ease-in-out;
+        }
+
+        /* Links */
+        a {
+            color: var(--color-soft-dark);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: var(--color-gold);
+            text-shadow:
+                -0.5px -0.5px 0 rgba(40, 53, 72, 0.2),
+                0.5px -0.5px 0 rgba(40, 53, 72, 0.2),
+                -0.5px 0.5px 0 rgba(40, 53, 72, 0.2),
+                0.5px 0.5px 0 rgba(40, 53, 72, 0.2),
+                0 0 8px rgba(227, 193, 116, 0.5);
+        }
+
+        /* Headings */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--color-soft-dark);
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #7a9fbc, #ff6b9e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            /* Add a filter to increase contrast and readability */
+            filter: drop-shadow(0px 0px 1px rgba(40, 53, 72, 0.7));
+        }
+
+        h2 {
+            color: var(--color-gold);
+            text-shadow:
+                -1px -1px 0 rgba(40, 53, 72, 0.4),
+                1px -1px 0 rgba(40, 53, 72, 0.4),
+                -1px 1px 0 rgba(40, 53, 72, 0.4),
+                1px 1px 0 rgba(40, 53, 72, 0.4),
+                0 0 10px rgba(227, 193, 116, 0.3);
+        }
+
+        /* Layout */
+        header,
+        main,
+        footer {
+            padding: 0 5%;
+        }
+
         .two-column {
-            grid-template-columns: 1fr;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
         }
-    }
 
-    /* Navigation */
-    .navigation {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 2rem 0;
-        background-color: rgba(6, 6, 26, 0.7);
-        backdrop-filter: blur(10px);
-        z-index: 100;
-        position: relative;
-    }
-
-    .logo {
-        font-family: var(--font-serif);
-        font-size: 2rem;
-        font-weight: 700;
-        color: var(--color-mint);
-        text-shadow: 0 0 10px rgba(138, 227, 200, 0.5);
-    }
-
-    nav ul {
-        display: flex;
-        gap: 2rem;
-        list-style: none;
-    }
-
-    nav a {
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: 0.9rem;
-        position: relative;
-    }
-
-    nav a::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: -5px;
-        left: 0;
-        background-color: var(--color-pink);
-        transition: width 0.3s ease;
-    }
-
-    nav a:hover::after {
-        width: 100%;
-    }
-
-    /* Hero Section */
-    .hero {
-        display: grid;
-        grid-template-columns: 3fr 2fr;
-        gap: 2rem;
-        min-height: 70vh;
-        align-items: center;
-        margin-bottom: 4rem;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .hero::before {
-        content: '';
-        position: absolute;
-        top: -100px;
-        right: -100px;
-        width: 300px;
-        height: 300px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(255, 107, 158, 0.1) 0%, rgba(255, 107, 158, 0) 70%);
-        z-index: -1;
-    }
-
-    .hero::after {
-        content: '';
-        position: absolute;
-        bottom: -50px;
-        left: -50px;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(138, 227, 200, 0.1) 0%, rgba(138, 227, 200, 0) 70%);
-        z-index: -1;
-    }
-
-    .hero-text h2 {
-        font-size: 1.5rem;
-        font-weight: 400;
-        color: var(--color-pink);
-        margin-bottom: 1rem;
-    }
-
-    .tagline {
-        font-size: 1.2rem;
-        max-width: 500px;
-        margin-top: 2rem;
-        font-family: var(--font-serif);
-        font-style: italic;
-        color: var(--color-light-blue);
-    }
-
-    .profile-image {
-        border-radius: 10px;
-        box-shadow: 0 0 30px rgba(138, 227, 200, 0.3);
-        transition: all 0.3s ease;
-        max-width: 100%;
-        height: auto;
-    }
-
-    .profile-image:hover {
-        transform: scale(1.02);
-        box-shadow: 0 0 40px rgba(255, 107, 158, 0.4);
-    }
-
-    /* Editorial Sections */
-    .editorial-section {
-        margin: 8rem 0;
-        position: relative;
-        background-color: rgba(14, 14, 32, 0.6);
-        padding: 3rem;
-        border-radius: 10px;
-        backdrop-filter: blur(5px);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-        border: 1px solid rgba(138, 227, 200, 0.1);
-    }
-
-    .section-title {
-        display: flex;
-        align-items: center;
-        margin-bottom: 3rem;
-    }
-
-    .section-title .number {
-        font-family: var(--font-serif);
-        font-size: 3.5rem;
-        font-weight: 700;
-        color: rgba(138, 227, 200, 0.2);
-        margin-right: 1rem;
-        text-shadow: 0 0 15px rgba(138, 227, 200, 0.1);
-    }
-
-    .section-title h2 {
-        font-size: 2.5rem;
-        position: relative;
-    }
-
-    .section-title h2:after {
-        content: '';
-        position: absolute;
-        height: 2px;
-        width: 4rem;
-        background: linear-gradient(to right, var(--color-pink), var(--color-mint));
-        bottom: -0.5rem;
-        left: 0;
-    }
-
-    .highlight-text {
-        font-size: 1.2rem;
-        color: var(--color-pink);
-        margin-bottom: 1.5rem;
-        font-weight: 500;
-        letter-spacing: 1px;
-    }
-
-    /* Projects */
-    .project-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 2rem;
-    }
-
-    .project-card {
-        background-color: rgba(6, 6, 26, 0.7);
-        padding: 2rem;
-        border-radius: 10px;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        border: 1px solid rgba(138, 227, 200, 0.1);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .project-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background: linear-gradient(to right, var(--color-mint), var(--color-pink));
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .project-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    }
-
-    .project-card:hover::before {
-        opacity: 1;
-    }
-
-    .project-card h3 {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .project-type {
-        color: var(--color-pink);
-        font-size: 0.9rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 1rem;
-    }
-
-    .project-features {
-        margin-top: 1.5rem;
-        padding-left: 1.2rem;
-    }
-
-    .project-features li {
-        position: relative;
-        padding-left: 0.5rem;
-        margin-bottom: 0.5rem;
-        list-style-type: none;
-    }
-
-    .project-features li::before {
-        content: '✦';  /* Star symbol */
-        color: var(--color-mint);
-        position: absolute;
-        left: -1.2rem;
-    }
-
-    /* Experience Timeline */
-    .timeline {
-        position: relative;
-        max-width: 1000px;
-        margin: 0 auto;
-    }
-
-    .timeline:before {
-        content: '';
-        position: absolute;
-        height: 100%;
-        width: 2px;
-        background: linear-gradient(to bottom, var(--color-mint), var(--color-pink));
-        left: 25%;
-        transform: translateX(-50%);
-    }
-
-    .timeline-item {
-        display: grid;
-        grid-template-columns: 1fr 3fr;
-        margin-bottom: 3rem;
-    }
-
-    .timeline-date {
-        text-align: right;
-        padding-right: 3rem;
-        font-weight: 600;
-        font-size: 0.9rem;
-        color: var(--color-muted);
-        position: relative;
-    }
-
-    .timeline-date:after {
-        content: '';
-        position: absolute;
-        width: 12px;
-        height: 12px;
-        background-color: var(--color-pink);
-        border-radius: 50%;
-        top: 0.5rem;
-        right: -6px;
-        box-shadow: 0 0 10px var(--color-pink);
-    }
-
-    .timeline-item:nth-child(even) .timeline-date:after {
-        background-color: var(--color-mint);
-        box-shadow: 0 0 10px var(--color-mint);
-    }
-
-    .timeline-content {
-        padding-left: 2rem;
-    }
-
-    .timeline-content h3 {
-        margin-bottom: 0.5rem;
-    }
-
-    @media (max-width: 768px) {
-        .timeline:before {
-            left: 2rem;
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
         }
-        
-        .timeline-item {
-            grid-template-columns: 1fr;
+
+        /* Navigation */
+        .navigation {
+            display: flex;
+            justify-content: flex-end;
+            /* Changed from space-between to flex-end to center the nav without the logo */
+            align-items: center;
+            padding: 2rem 0;
+            background-color: transparent;
+            /* Changed from semi-transparent to fully transparent */
+            z-index: 100;
+            position: relative;
+            border-bottom: none;
+            /* Removed the border */
         }
-        
-        .timeline-date {
-            text-align: left;
-            padding-left: 3rem;
-            padding-right: 0;
+
+        .logo {
+            display: none;
+            /* This hides the "Jezz" logo */
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            position: relative;
+            color: var(--color-soft-dark);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--color-gold);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--color-gold);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 2rem;
+            min-height: 70vh;
+            align-items: center;
+            margin-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(245, 191, 210, 0.3) 0%, rgba(245, 191, 210, 0) 70%);
+            z-index: -1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(168, 201, 224, 0.3) 0%, rgba(168, 201, 224, 0) 70%);
+            z-index: -1;
+        }
+
+        .hero-text h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--color-soft-dark);
+            margin-bottom: 1rem;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            max-width: 500px;
+            margin-top: 2rem;
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: var(--color-soft-dark);
+        }
+
+        .profile-image {
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(227, 193, 116, 0.3);
+            transition: all 0.3s ease;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 40px rgba(227, 193, 116, 0.4);
+        }
+
+        /* Editorial Sections */
+        .editorial-section {
+            margin: 8rem 0;
+            position: relative;
+            background-color: rgba(249, 247, 243, 0.2);
+            padding: 3rem;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(227, 193, 116, 0.3);
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title .number {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: rgba(227, 193, 116, 0.4);
+            margin-right: 1rem;
+            text-shadow:
+                -1px -1px 0 rgba(40, 53, 72, 0.1),
+                1px -1px 0 rgba(40, 53, 72, 0.1),
+                -1px 1px 0 rgba(40, 53, 72, 0.1),
+                1px 1px 0 rgba(40, 53, 72, 0.1),
+                0 0 15px rgba(227, 193, 116, 0.1);
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            height: 2px;
+            width: 4rem;
+            background: linear-gradient(to right, var(--color-gold), var(--color-dreamy-pink));
+            bottom: -0.5rem;
+            left: 0;
+        }
+
+        .highlight-text {
+            font-size: 1.2rem;
+            color: #4a6c94;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 
+                0.5px 0.5px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        /* Projects */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: rgba(249, 247, 243, 0.2);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(227, 193, 116, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--color-gold), var(--color-dreamy-pink));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(227, 193, 116, 0.2);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
             margin-bottom: 0.5rem;
         }
-        
+
+        .project-type {
+            color: #4a6c94;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            text-shadow: 
+                0.5px 0.5px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .project-features {
+            margin-top: 1.5rem;
+            padding-left: 1.2rem;
+        }
+
+        .project-features li {
+            position: relative;
+            padding-left: 0.5rem;
+            margin-bottom: 0.5rem;
+            list-style-type: none;
+        }
+
+        .project-features li::before {
+            content: '✦';
+            /* Star symbol */
+            color: var(--color-gold);
+            position: absolute;
+            left: -1.2rem;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--color-gold), var(--color-dreamy-pink));
+            left: 25%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-date {
+            text-align: right;
+            padding-right: 3rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--color-soft-dark);
+            position: relative;
+        }
+
         .timeline-date:after {
-            left: 0;
-            right: auto;
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: var(--color-gold);
+            border-radius: 50%;
+            top: 0.5rem;
+            right: -6px;
+            box-shadow: 0 0 10px var(--color-gold);
         }
-        
+
+        .timeline-item:nth-child(even) .timeline-date:after {
+            background-color: var(--color-dreamy-pink);
+            box-shadow: 0 0 10px var(--color-dreamy-pink);
+        }
+
         .timeline-content {
-            padding-left: 3rem;
+            padding-left: 2rem;
         }
-    }
 
-    /* Skills Section */
-    .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 3rem;
-    }
+        .timeline-content h3 {
+            margin-bottom: 0.5rem;
+        }
 
-    .skill-category h3 {
-        margin-bottom: 1.5rem;
-        font-size: 1.3rem;
-        position: relative;
-    }
+        @media (max-width: 768px) {
+            .timeline:before {
+                left: 2rem;
+            }
 
-    .skill-category h3:after {
-        content: '';
-        position: absolute;
-        height: 2px;
-        width: 3rem;
-        background: linear-gradient(to right, var(--color-mint), var(--color-pink));
-        bottom: -0.5rem;
-        left: 0;
-    }
+            .timeline-item {
+                grid-template-columns: 1fr;
+            }
 
-    .skill-category ul {
-        padding-left: 1.2rem;
-    }
+            .timeline-date {
+                text-align: left;
+                padding-left: 3rem;
+                padding-right: 0;
+                margin-bottom: 0.5rem;
+            }
 
-    .skill-category li {
-        position: relative;
-        padding-left: 0.5rem;
-        margin-bottom: 0.8rem;
-        list-style-type: none;
-    }
+            .timeline-date:after {
+                left: 0;
+                right: auto;
+            }
 
-    .skill-category li::before {
-        content: '★';  /* Star symbol */
-        color: var(--color-pink);
-        position: absolute;
-        left: -1.2rem;
-    }
+            .timeline-content {
+                padding-left: 3rem;
+            }
+        }
 
-    .skill-category:nth-child(2) li::before {
-        color: var(--color-mint);
-    }
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 3rem;
+        }
 
-    .skill-category:nth-child(3) li::before {
-        color: var(--color-light-blue);
-    }
+        .skill-category h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            position: relative;
+        }
 
-    /* Footer & Contact */
-    footer {
-        background-color: rgba(6, 6, 26, 0.9);
-        color: var(--color-light);
-        padding-top: 4rem;
-        padding-bottom: 2rem;
-        position: relative;
-        overflow: hidden;
-    }
+        .skill-category h3:after {
+            content: '';
+            position: absolute;
+            height: 2px;
+            width: 3rem;
+            background: linear-gradient(to right, var(--color-gold), var(--color-dreamy-pink));
+            bottom: -0.5rem;
+            left: 0;
+        }
 
-    footer::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 1px;
-        background: linear-gradient(to right, transparent, var(--color-mint), var(--color-pink), transparent);
-    }
+        .skill-category ul {
+            padding-left: 1.2rem;
+        }
 
-    .contact-wrapper {
-        max-width: 800px;
-        margin: 0 auto;
-    }
+        .skill-category li {
+            position: relative;
+            padding-left: 0.5rem;
+            margin-bottom: 0.8rem;
+            list-style-type: none;
+        }
 
-    .contact-header {
-        text-align: center;
-        margin-bottom: 3rem;
-    }
+        .skill-category li::before {
+            content: '★';
+            /* Star symbol */
+            color: var(--color-gold);
+            position: absolute;
+            left: -1.2rem;
+        }
 
-    .contact-header h2 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        background: linear-gradient(to right, var(--color-mint), var(--color-pink));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-fill-color: transparent;
-    }
+        .skill-category:nth-child(2) li::before {
+            content: '☆';
+            /* Open star symbol */
+            color: var(--color-gold);
+        }
 
-    .contact-info {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        margin-bottom: 4rem;
-    }
+        .skill-category:nth-child(3) li::before {
+            content: '✧';
+            /* Different star symbol */
+            color: var(--color-gold);
+        }
 
-    .contact-item {
-        text-align: center;
-        padding: 1.5rem;
-        background-color: rgba(14, 14, 32, 0.6);
-        border-radius: 10px;
-        backdrop-filter: blur(5px);
-        border: 1px solid rgba(138, 227, 200, 0.1);
-        transition: all 0.3s ease;
-    }
+        /* Footer & Contact */
+        footer {
+            background-color: rgba(249, 247, 243, 0.2);
+            color: var(--color-soft-dark);
+            padding-top: 4rem;
+            padding-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
 
-    .contact-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    }
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--color-gold), var(--color-dreamy-pink), transparent);
+        }
 
-    .contact-item .label {
-        display: block;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-        color: var(--color-pink);
-    }
+        .contact-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-    .contact-item a {
-        color: var(--color-light);
-        font-size: 1.1rem;
-    }
+        .contact-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
 
-    .contact-item a:hover {
-        color: var(--color-mint);
-    }
+        .contact-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--color-gold), var(--color-dreamy-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            filter: drop-shadow(0px 0px 1px rgba(40, 53, 72, 0.7));
+        }
 
-    .footer-note {
-        text-align: center;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding-top: 2rem;
-        font-size: 0.8rem;
-        color: rgba(255, 255, 255, 0.5);
-    }
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
 
-    /* Animations */
-    @keyframes fadeIn {
-        from {
+        .contact-item {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: rgba(249, 247, 243, 0.2);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(227, 193, 116, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(227, 193, 116, 0.2);
+        }
+
+        .contact-item .label {
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #4a6c94;
+            text-shadow: 
+                0.5px 0.5px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .contact-item a {
+            color: var(--color-soft-dark);
+            font-size: 1.1rem;
+        }
+
+        .contact-item a:hover {
+            color: var(--color-gold);
+        }
+
+        .footer-note {
+            text-align: center;
+            border-top: 1px solid rgba(227, 193, 116, 0.2);
+            padding-top: 2rem;
+            font-size: 0.8rem;
+            color: rgba(40, 53, 72, 0.7);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero,
+        .editorial-section {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .editorial-section {
             opacity: 0;
-            transform: translateY(20px);
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
+
+        .editorial-section:nth-child(1) {
+            animation-delay: 0.2s;
         }
-    }
 
-    @keyframes float {
-        0% {
-            transform: translateY(0px);
+        .editorial-section:nth-child(2) {
+            animation-delay: 0.4s;
         }
-        50% {
-            transform: translateY(-10px);
+
+        .editorial-section:nth-child(3) {
+            animation-delay: 0.6s;
         }
-        100% {
-            transform: translateY(0px);
+
+        .editorial-section:nth-child(4) {
+            animation-delay: 0.8s;
         }
-    }
 
-    .hero, .editorial-section {
-        animation: fadeIn 0.8s ease-out forwards;
-    }
+        /* Dreamy Star Border for Profile Picture */
 
-    .editorial-section {
-        opacity: 0;
-    }
+        /* Container for profile image with star border */
+        .hero-image {
+            position: relative;
+            z-index: 1;
+        }
 
-    .editorial-section:nth-child(1) {
-        animation-delay: 0.2s;
-    }
+        /* If using an actual image */
+        .profile-image {
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(227, 193, 116, 0.3);
+            transition: all 0.3s ease;
+            max-width: 100%;
+            height: auto;
+            z-index: 2;
+        }
 
-    .editorial-section:nth-child(2) {
-        animation-delay: 0.4s;
-    }
+        /* If using the placeholder */
+        .image-placeholder {
+            position: relative;
+            z-index: 2;
+        }
 
-    .editorial-section:nth-child(3) {
-        animation-delay: 0.6s;
-    }
+        /* Star Border Decoration */
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background:
+                /* Top left corner stars */
+                radial-gradient(circle at 0% 0%, var(--color-gold) 3px, transparent 4px),
+                radial-gradient(circle at 15px 15px, var(--color-gold) 2px, transparent 3px),
+                radial-gradient(circle at 30px 5px, var(--color-light-gold) 2px, transparent 3px),
+                radial-gradient(circle at 5px 30px, var(--color-light-gold) 2px, transparent 3px),
 
-    .editorial-section:nth-child(4) {
-        animation-delay: 0.8s;
-    }
+                /* Top right corner stars */
+                radial-gradient(circle at 100% 0%, var(--color-gold) 3px, transparent 4px),
+                radial-gradient(circle at calc(100% - 15px) 15px, var(--color-gold) 2px, transparent 3px),
+                radial-gradient(circle at calc(100% - 30px) 5px, var(--color-light-gold) 2px, transparent 3px),
+                radial-gradient(circle at calc(100% - 5px) 30px, var(--color-light-gold) 2px, transparent 3px),
+
+                /* Bottom left corner stars */
+                radial-gradient(circle at 0% 100%, var(--color-gold) 3px, transparent 4px),
+                radial-gradient(circle at 15px calc(100% - 15px), var(--color-gold) 2px, transparent 3px),
+                radial-gradient(circle at 30px calc(100% - 5px), var(--color-light-gold) 2px, transparent 3px),
+                radial-gradient(circle at 5px calc(100% - 30px), var(--color-light-gold) 2px, transparent 3px),
+
+                /* Bottom right corner stars */
+                radial-gradient(circle at 100% 100%, var(--color-gold) 3px, transparent 4px),
+                radial-gradient(circle at calc(100% - 15px) calc(100% - 15px), var(--color-gold) 2px, transparent 3px),
+                radial-gradient(circle at calc(100% - 30px) calc(100% - 5px), var(--color-light-gold) 2px, transparent 3px),
+                radial-gradient(circle at calc(100% - 5px) calc(100% - 30px), var(--color-light-gold) 2px, transparent 3px),
+
+                /* Middle top stars */
+                radial-gradient(circle at 50% 5px, var(--color-gold) 2px, transparent 3px),
+                radial-gradient(circle at calc(50% - 25px) 8px, var(--color-light-gold) 1.5px, transparent 2.5px),
+                radial-gradient(circle at calc(50% + 25px) 8px, var(--color-light-gold) 1.5px, transparent 2.5px),
+
+                /* Middle bottom stars */
+                radial-gradient(circle at 50% calc(100% - 5px), var(--color-gold) 2px, transparent 3px),
+                radial-gradient(circle at calc(50% - 25px) calc(100% - 8px), var(--color-light-gold) 1.5px, transparent 2.5px),
+                radial-gradient(circle at calc(50% + 25px) calc(100% - 8px), var(--color-light-gold) 1.5px, transparent 2.5px),
+
+                /* Middle left stars */
+                radial-gradient(circle at 5px 50%, var(--color-gold) 2px, transparent 3px),
+                radial-gradient(circle at 8px calc(50% - 25px), var(--color-light-gold) 1.5px, transparent 2.5px),
+                radial-gradient(circle at 8px calc(50% + 25px), var(--color-light-gold) 1.5px, transparent 2.5px),
+
+                /* Middle right stars */
+                radial-gradient(circle at calc(100% - 5px) 50%, var(--color-gold) 2px, transparent 3px),
+                radial-gradient(circle at calc(100% - 8px) calc(50% - 25px), var(--color-light-gold) 1.5px, transparent 2.5px),
+                radial-gradient(circle at calc(100% - 8px) calc(50% + 25px), var(--color-light-gold) 1.5px, transparent 2.5px);
+            border-radius: 20px;
+            z-index: 1;
+            animation: starTwinkle 4s infinite ease-in-out;
+        }
+
+        /* Add a secondary border for extra daintiness */
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 1px dashed var(--color-gold);
+            border-radius: 15px;
+            z-index: 1;
+            opacity: 0.5;
+            animation: rotate 120s linear infinite;
+        }
+
+        /* Add star corner decorations */
+        .star-corner {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: transparent;
+            z-index: 3;
+        }
+
+        .star-corner::before {
+            content: '★';
+            position: absolute;
+            color: var(--color-gold);
+            font-size: 15px;
+            filter: drop-shadow(0 0 3px rgba(227, 193, 116, 0.8));
+        }
+
+        .star-corner-tl {
+            top: -7px;
+            left: -7px;
+        }
+
+        .star-corner-tr {
+            top: -7px;
+            right: -7px;
+        }
+
+        .star-corner-bl {
+            bottom: -7px;
+            left: -7px;
+        }
+
+        .star-corner-br {
+            bottom: -7px;
+            right: -7px;
+        }
+
+        /* Add animations for the border */
+        @keyframes starTwinkle {
+            0% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* --- Custom Stars (fixed, visible, no scroll issues) --- */
+        .custom-star {
+            position: fixed; /* Fixed position so stars stay on screen */
+            z-index: 0;      /* Above backgrounds, below main content */
+            animation: starTwinkle 4s infinite ease-in-out;
+            pointer-events: none; /* Don't block clicks */
+        }
+
+        @keyframes starTwinkle {
+            0% { opacity: 0.4; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 0.4; transform: scale(0.8); }
+        }
+
+        .pink-star {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ff6b9e' d='M12 0l3.09 6.26L22 7.27l-5 4.87 1.18 6.88L12 16l-6.18 3.25L7 10.14 2 5.27l6.91-1.01L12 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .mint-star {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%238ae3c8' d='M12 0l3.09 6.26L22 7.27l-5 4.87 1.18 6.88L12 16l-6.18 3.25L7 10.14 2 5.27l6.91-1.01L12 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .pink-outline-star {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%238ae3c8' d='M12 0l3.09 6.26L22 7.27l-5 4.87 1.18 6.88L12 16l-6.18 3.25L7 10.14 2 5.27l6.91-1.01L12 0z'/%3E%3Cpath fill='none' stroke='%23ff6b9e' stroke-width='1' d='M12 0l3.09 6.26L22 7.27l-5 4.87 1.18 6.88L12 16l-6.18 3.25L7 10.14 2 5.27l6.91-1.01L12 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .pink-double-star {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 24'%3E%3Cpath fill='%23ff6b9e' d='M12 2l2.5 5 5.5.8-4 3.9 1 5.3-5-2.6-5 2.6 1-5.3-4-3.9 5.5-.8z'/%3E%3Cpath fill='%23ff6b9e' d='M24 8l1.5 3 3.5.5-2.5 2.4.5 3.1-3-1.6-3 1.6.5-3.1-2.5-2.4 3.5-.5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .star-tiny { width: 10px; height: 10px; }
+        .star-small { width: 15px; height: 15px; }
+        .star-medium { width: 20px; height: 20px; }
+        .star-large { width: 30px; height: 30px; }
+
+        .delay-1 { animation-delay: 1s; }
+        .delay-2 { animation-delay: 2s; }
+        .delay-3 { animation-delay: 3s; }
+        .delay-4 { animation-delay: 4s; }
+        .delay-5 { animation-delay: 5s; }
+
+        /* Remove existing circular elements and clouds */
+        .cloud, .moon, .celestial, .planet {
+            display: none; /* Hide existing circular elements */
+        }
     </style>
 </head>
+
 <body>
-    <!-- Decorative Space Elements -->
-    <div class="star" style="top: 10%; left: 5%; width: 3px; height: 3px;"></div>
-    <div class="star" style="top: 15%; left: 20%; width: 2px; height: 2px;"></div>
-    <div class="star" style="top: 25%; left: 15%; width: 4px; height: 4px;"></div>
-    <div class="star" style="top: 40%; left: 25%; width: 3px; height: 3px;"></div>
-    <div class="star" style="top: 60%; left: 10%; width: 2px; height: 2px;"></div>
-    <div class="star" style="top: 70%; left: 30%; width: 3px; height: 3px;"></div>
-    <div class="star" style="top: 85%; left: 15%; width: 2px; height: 2px;"></div>
-    <div class="star" style="top: 5%; left: 80%; width: 3px; height: 3px;"></div>
-    <div class="star" style="top: 20%; left: 75%; width: 4px; height: 4px;"></div>
-    <div class="star" style="top: 35%; left: 85%; width: 2px; height: 2px;"></div>
-    <div class="star" style="top: 50%; left: 70%; width: 3px; height: 3px;"></div>
-    <div class="star" style="top: 65%; left: 80%; width: 2px; height: 2px;"></div>
-    <div class="star" style="top: 80%; left: 90%; width: 4px; height: 4px;"></div>
-    <div class="star" style="top: 90%; left: 75%; width: 3px; height: 3px;"></div>
+    <!-- Pink filled stars -->
+    <div class="custom-star pink-star star-small delay-1" style="top: 5%; left: 8%;"></div>
+    <div class="custom-star pink-star star-tiny delay-3" style="top: 20%; left: 22%;"></div>
+    <div class="custom-star pink-star star-medium delay-2" style="top: 45%; right: 12%;"></div>
+    <div class="custom-star pink-star star-tiny delay-4" style="top: 65%; left: 5%;"></div>
+    <div class="custom-star pink-star star-small delay-2" style="bottom: 15%; right: 18%;"></div>
 
-    <!-- Moon -->
+    <!-- Mint/blue filled stars -->
+    <div class="custom-star mint-star star-tiny delay-2" style="top: 12%; right: 25%;"></div>
+    <div class="custom-star mint-star star-small delay-4" style="top: 35%; left: 15%;"></div>
+    <div class="custom-star mint-star star-medium delay-1" style="top: 55%; right: 8%;"></div>
+    <div class="custom-star mint-star star-tiny delay-3" style="bottom: 10%; left: 25%;"></div>
+    <div class="custom-star mint-star star-small delay-5" style="bottom: 30%; right: 30%;"></div>
+
+    <!-- Pink outline stars with mint center -->
+    <div class="custom-star pink-outline-star star-medium delay-3" style="top: 8%; left: 28%;"></div>
+    <div class="custom-star pink-outline-star star-small delay-1" style="top: 28%; right: 22%;"></div>
+    <div class="custom-star pink-outline-star star-tiny delay-4" style="top: 48%; left: 32%;"></div>
+    <div class="custom-star pink-outline-star star-small delay-2" style="bottom: 20%; right: 15%;"></div>
+    <div class="custom-star pink-outline-star star-medium delay-5" style="bottom: 5%; left: 10%;"></div>
+
+    <!-- Pink double stars (like in the image) -->
+    <div class="custom-star pink-double-star star-medium delay-2" style="top: 15%; right: 5%;"></div>
+    <div class="custom-star pink-double-star star-small delay-4" style="top: 60%; left: 20%;"></div>
+    <div class="custom-star pink-double-star star-medium delay-1" style="bottom: 25%; right: 5%;"></div>
+
+    <!-- Additional stars for other areas (these won't cause scrolling because they're fixed) -->
+    <div class="custom-star pink-star star-tiny delay-1" style="top: 5%; right: 15%;"></div>
+    <div class="custom-star mint-star star-small delay-3" style="top: 12%; left: 35%;"></div>
+    <div class="custom-star pink-outline-star star-tiny delay-2" style="top: 75%; right: 25%;"></div>
+    <div class="custom-star pink-star star-small delay-4" style="top: 82%; left: 18%;"></div>
+    <div class="custom-star pink-double-star star-small delay-1" style="top: 88%; right: 10%;"></div>
+    <div class="custom-star mint-star star-tiny delay-3" style="top: 92%; left: 28%;"></div>
+
+    <!-- Moon and Sun -->
     <div class="moon" style="top: 15%; right: 10%;"></div>
+    <div class="celestial" style="bottom: 15%; left: 5%; width: 60px; height: 60px;"></div>
 
-    <!-- Planets -->
-    <div class="planet" style="top: 30%; left: 5%; width: 50px; height: 50px; background: linear-gradient(45deg, #8ae3c8, #6bcbff); opacity: 0.3;"></div>
-    <div class="planet" style="bottom: 10%; right: 5%; width: 70px; height: 70px; background: linear-gradient(45deg, #ff6b9e, #ff9e6b); opacity: 0.2;"></div>
+    <!-- Dreamy Clouds -->
+    <div class="cloud" style="top: 25%; left: 20%; width: 150px; height: 80px; opacity: 0.3;"></div>
+    <div class="cloud" style="bottom: 20%; right: 15%; width: 180px; height: 100px; opacity: 0.4;"></div>
+    <div class="cloud" style="top: 60%; left: 60%; width: 120px; height: 70px; opacity: 0.2;"></div>
+
+    <!-- Additional Stars with Different Animations -->
+    <div class="star" style="top: 30%; left: 40%; animation-delay: 1s;"></div>
+    <div class="star" style="top: 45%; left: 65%; animation-delay: 0.5s;"></div>
+    <div class="star" style="top: 75%; left: 45%; animation-delay: 1.5s;"></div>
+    <div class="star" style="top: 12%; left: 55%; animation-delay: 2s;"></div>
+    <div class="star" style="top: 55%; left: 25%; animation-delay: 0.7s;"></div>
+    <div class="star" style="top: 82%; left: 60%; animation-delay: 1.2s;"></div>
 
     <header>
         <div class="navigation">
@@ -695,7 +1050,7 @@
                 </ul>
             </nav>
         </div>
-        
+
         <div class="hero">
             <div class="hero-text">
                 <h1>Jessica Vranek</h1>
@@ -703,11 +1058,12 @@
                 <p class="tagline">Creating frameworks that solve coordination failures through aligned incentives</p>
             </div>
             <div class="hero-image">
-                <!-- If you have an image, use this: -->
                 <img src="./assets/profilepic.JPG" alt="Jessica Vranek" class="profile-image">
-                
-                <!-- If no image yet, use this placeholder: -->
-                <!-- <div class="image-placeholder" style="height: 400px; background: linear-gradient(45deg, rgba(138, 227, 200, 0.3), rgba(255, 107, 158, 0.3)); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">Profile Image</div> -->
+                <!-- Star corner decorations -->
+                <div class="star-corner star-corner-tl"></div>
+                <div class="star-corner star-corner-tr"></div>
+                <div class="star-corner star-corner-bl"></div>
+                <div class="star-corner star-corner-br"></div>
             </div>
         </div>
     </header>
@@ -718,14 +1074,20 @@
                 <span class="number">01</span>
                 <h2>About</h2>
             </div>
-            
+
             <div class="section-content two-column">
                 <div class="column">
                     <h3 class="highlight-text">FROM APPLE MAPS TO WEB3</h3>
-                    <p>I career shifted about a year ago, coming from working on Apple Maps where I managed and worked on several pilot projects integrating pedestrian experiences and AR technology. With a background in economics and environmental studies, I was always fascinated by game theory and how different incentives shape behavior.</p>
+                    <p>I career shifted about a year ago, coming from working on Apple Maps where I managed and worked
+                        on several pilot projects integrating pedestrian experiences and AR technology. With a
+                        background in economics and environmental studies, I was always fascinated by game theory and
+                        how different incentives shape behavior.</p>
                 </div>
                 <div class="column">
-                    <p>When I stumbled upon Tim Roughgarden's course on cryptoeconomics, it clicked — seeing how blockchain could create these entirely new economic systems and coordination mechanisms drew me in. Now, I'm building frameworks that solve coordination failures through aligned incentives and creating systems where collaboration naturally leads to positive-sum outcomes.</p>
+                    <p>When I stumbled upon Tim Roughgarden's course on cryptoeconomics, it clicked — seeing how
+                        blockchain could create these entirely new economic systems and coordination mechanisms drew me
+                        in. Now, I'm building frameworks that solve coordination failures through aligned incentives and
+                        creating systems where collaboration naturally leads to positive-sum outcomes.</p>
                 </div>
             </div>
         </section>
@@ -735,12 +1097,13 @@
                 <span class="number">02</span>
                 <h2>Projects</h2>
             </div>
-            
+
             <div class="project-grid">
                 <div class="project-card">
                     <h3>MerkleProofVoting</h3>
                     <p class="project-type">Governance & Voting</p>
-                    <p>An innovative blockchain-based voting system utilizing Merkle trees to provide a secure, efficient, and transparent voting mechanism.</p>
+                    <p>An innovative blockchain-based voting system utilizing Merkle trees to provide a secure,
+                        efficient, and transparent voting mechanism.</p>
                     <ul class="project-features">
                         <li>Flexible Ballot Creation</li>
                         <li>Cryptographic Voter Verification</li>
@@ -748,23 +1111,27 @@
                         <li>Complete Ballot Lifecycle Management</li>
                     </ul>
                 </div>
-                
+
                 <div class="project-card">
                     <h3>Viridian</h3>
                     <p class="project-type">Environmental Impact</p>
-                    <p>A protocol leveraging bonding curves and prediction markets to quantify and tokenize ecological service impact with the goal to incentivize more global participation in environmental impact projects.</p>
+                    <p>A protocol leveraging bonding curves and prediction markets to quantify and tokenize ecological
+                        service impact with the goal to incentivize more global participation in environmental impact
+                        projects.</p>
                 </div>
-                
+
                 <div class="project-card">
                     <h3>Proof of Change</h3>
                     <p class="project-type">Climate Finance</p>
-                    <p>Revolutionizes climate finance by implementing a retroactive funding mechanism using DAOs to verify real environmental outcomes with future plans of using zkML to automate verification.</p>
+                    <p>Revolutionizes climate finance by implementing a retroactive funding mechanism using DAOs to
+                        verify real environmental outcomes with future plans of using zkML to automate verification.</p>
                 </div>
-                
+
                 <div class="project-card">
                     <h3>KyeDAO</h3>
                     <p class="project-type">Community Finance</p>
-                    <p>A protocol that modernizes the traditional Korean "Kye" system - a rotating savings and credit association commonly used in Korean immigrant communities.</p>
+                    <p>A protocol that modernizes the traditional Korean "Kye" system - a rotating savings and credit
+                        association commonly used in Korean immigrant communities.</p>
                 </div>
             </div>
         </section>
@@ -774,37 +1141,42 @@
                 <span class="number">03</span>
                 <h2>Experience</h2>
             </div>
-            
+
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-date">2023 — Present</div>
                     <div class="timeline-content">
                         <h3>Solidity Developer</h3>
-                        <p>Building frameworks that solve coordination failures through aligned incentives. Active participant in the Web3 ecosystem, regularly contributing to hackathons, bootcamps, and workshops.</p>
+                        <p>Building frameworks that solve coordination failures through aligned incentives. Active
+                            participant in the Web3 ecosystem, regularly contributing to hackathons, bootcamps, and
+                            workshops.</p>
                     </div>
                 </div>
-                
+
                 <div class="timeline-item">
                     <div class="timeline-date">2022 — 2023</div>
                     <div class="timeline-content">
                         <h3>Encode Club Bootcamps</h3>
-                        <p>Participated in Chain Abstraction Educate and EVM bootcamps. Currently working on improving MerkleProofVoting, my final project from the EVM bootcamp.</p>
+                        <p>Participated in Chain Abstraction Educate and EVM bootcamps. Currently working on improving
+                            MerkleProofVoting, my final project from the EVM bootcamp.</p>
                     </div>
                 </div>
-                
+
                 <div class="timeline-item">
                     <div class="timeline-date">Previous</div>
                     <div class="timeline-content">
                         <h3>Team Lead at Apple Maps</h3>
-                        <p>Managed and worked on several pilot projects integrating pedestrian experiences and AR technology. Hosted weekly meetings with my team and presented our work to stakeholders.</p>
+                        <p>Managed and worked on several pilot projects integrating pedestrian experiences and AR
+                            technology. Hosted weekly meetings with my team and presented our work to stakeholders.</p>
                     </div>
                 </div>
-                
+
                 <div class="timeline-item">
                     <div class="timeline-date">Previous</div>
                     <div class="timeline-content">
                         <h3>Teller at Wells Fargo</h3>
-                        <p>Served as an engagement connection point between the company and customers, developing strong customer service and communication skills.</p>
+                        <p>Served as an engagement connection point between the company and customers, developing strong
+                            customer service and communication skills.</p>
                     </div>
                 </div>
             </div>
@@ -815,7 +1187,7 @@
                 <span class="number">04</span>
                 <h2>Skills</h2>
             </div>
-            
+
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3>Technical</h3>
@@ -828,7 +1200,7 @@
                         <li>Hardhat</li>
                     </ul>
                 </div>
-                
+
                 <div class="skill-category">
                     <h3>Business</h3>
                     <ul>
@@ -839,7 +1211,7 @@
                         <li>Cross-team Collaboration</li>
                     </ul>
                 </div>
-                
+
                 <div class="skill-category">
                     <h3>Knowledge</h3>
                     <ul>
@@ -860,23 +1232,24 @@
                 <h2>Let's Connect</h2>
                 <p>Looking for opportunities to collaborate on projects that create positive-sum outcomes.</p>
             </div>
-            
+
             <div class="contact-info">
                 <div class="contact-item">
                     <span class="label">Email</span>
                     <a href="mailto:jessicavranek@gmail.com">jessicavranek@gmail.com</a>
                 </div>
-                
+
                 <div class="contact-item">
                     <span class="label">GitHub</span>
                     <a href="https://github.com/jezzkenarv" target="_blank">github.com/jezzkenarv</a>
                 </div>
             </div>
         </div>
-        
+
         <div class="footer-note">
             <p>© 2025 Jessica Vranek. All rights reserved.</p>
         </div>
     </footer>
 </body>
+
 </html>
