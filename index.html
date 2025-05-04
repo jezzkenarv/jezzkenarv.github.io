@@ -267,16 +267,21 @@
         /* Navigation */
         .navigation {
             display: flex;
-            justify-content: flex-end;
-            /* Changed from space-between to flex-end to center the nav without the logo */
+            justify-content: flex-start;
             align-items: center;
             padding: 2rem 0;
             background-color: transparent;
-            /* Changed from semi-transparent to fully transparent */
-            z-index: 100;
-            position: relative;
+            z-index: 1000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
             border-bottom: none;
-            /* Removed the border */
+            flex-wrap: wrap;
+            backdrop-filter: blur(8px);
+            background: none;
+            box-shadow: none;
+            padding-left: 4vw;
         }
 
         .logo {
@@ -288,6 +293,9 @@
             display: flex;
             gap: 2rem;
             list-style: none;
+            flex-wrap: wrap;
+            padding: 0;
+            margin: 0;
         }
 
         nav a {
@@ -328,6 +336,7 @@
             margin-bottom: 4rem;
             position: relative;
             overflow: hidden;
+            padding-top: 110px;
         }
 
         .hero::before {
@@ -1277,6 +1286,94 @@
             font-family: 'Chakra Petch', sans-serif;
             font-weight: 600;
             /* ... rest of existing skill-category h3 styles ... */
+        }
+
+        /* --- Responsive adjustments for mobile --- */
+        @media (max-width: 600px) {
+            .project-grid {
+                grid-template-columns: 1fr; /* Single column on small screens */
+                gap: 1.2rem;
+            }
+            .project-card {
+                min-height: 320px; /* Reduce min-height for mobile */
+                padding: 1.2rem;
+            }
+            .navigation {
+                padding: 1rem 0; /* Reduce padding for more space */
+            }
+            nav ul {
+                gap: 1rem; /* Reduce gap between nav items */
+                justify-content: center;   /* Center the nav items horizontally */
+                flex-wrap: nowrap;
+                width: 100%;               /* Ensure nav fills the width */
+                padding: 0;
+                margin: 0;
+            }
+            nav {
+                width: 100%;               /* Ensure nav fills the width */
+            }
+            nav li {
+                flex: 1 1 0;               /* Distribute space evenly between items */
+                text-align: center;        /* Center text in each nav item */
+                min-width: 0;              /* Prevent overflow */
+            }
+            nav a {
+                font-size: 0.85rem;
+                padding: 0.2em 0.3em;
+                display: block;            /* Make the link fill the li for easier tap */
+                width: 100%;
+            }
+            .hero {
+                padding-top: 80px; /* Reduce padding for smaller nav on mobile */
+            }
+
+            #about .section-content,
+            #about .section-content p,
+            #about .section-content li {
+                font-size: 0.92rem;
+                line-height: 1.5;
+            }
+
+            #projects .project-card,
+            #projects .project-card p,
+            #projects .project-card li {
+                font-size: 0.92rem;
+                line-height: 1.5;
+            }
+
+            #experience .timeline-content,
+            #experience .timeline-content p,
+            #experience .timeline-content li {
+                font-size: 0.92rem;
+                line-height: 1.5;
+            }
+
+            #skills .skills-grid,
+            #skills .skills-grid p,
+            #skills .skills-grid li {
+                font-size: 0.92rem;
+                line-height: 1.5;
+            }
+
+            /* Make the experience section more compact on mobile */
+            #experience .timeline-item {
+                margin-bottom: 1.2rem; /* Reduce space between items */
+                padding-bottom: 0.5rem; /* Optional: add a little padding for separation */
+            }
+            #experience .timeline-date {
+                padding-right: 1rem; /* Reduce right padding */
+                font-size: 0.85rem;  /* Smaller date text */
+            }
+            #experience .timeline-content h3 {
+                font-size: 1.05rem;  /* Smaller heading */
+                margin-bottom: 0.3rem;
+            }
+            #experience .timeline-content p {
+                margin-bottom: 0.5rem; /* Less space between paragraphs */
+            }
+            #experience .timeline:before {
+                left: 1rem; /* Move timeline line closer to edge */
+            }
         }
     </style>
 </head>
