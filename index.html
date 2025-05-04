@@ -1299,9 +1299,15 @@
                 padding: 1.2rem;
             }
             .navigation {
-                padding: 1rem 0; /* Reduce padding for more space */
-                /* backdrop-filter: blur(8px); */ /* Remove or comment out this line */
-                background-color: rgba(249, 247, 243, 0.85); /* Ensure it has some background */
+                display: flex;
+                justify-content: center; /* Keep centering */
+                align-items: center;
+                padding: 1rem 0; /* Keep mobile padding */
+                z-index: 1000; /* Still good practice */
+                width: 100%;
+                border-bottom: none;
+                flex-wrap: wrap;
+                padding-left: 0; /* Reset padding if centering text in li */
             }
             nav ul {
                 gap: 1rem; /* Reduce gap between nav items */
@@ -1326,6 +1332,7 @@
                 width: 100%;
             }
             .hero {
+                padding-top: 2rem; /* Reduced padding since nav is no longer fixed */
                 padding-top: 80px; /* Reduce padding for smaller nav on mobile */
             }
 
