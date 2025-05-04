@@ -7,9 +7,20 @@
     <title>Jessica Vranek | Solidity Developer & Web3 Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
 
     <style>
         /* Ethereal Dreamy Space Theme CSS for Jessica's CV Website */
@@ -22,7 +33,7 @@
             --color-gold: #e3c174;
             --color-light-gold: #f5e3bc;
             --color-off-white: #f9f7f3;
-            --font-sans: 'Montserrat', sans-serif;
+            --font-sans: 'Space Mono', monospace;
             --font-serif: 'Playfair Display', serif;
         }
 
@@ -74,9 +85,10 @@
 
         body {
             font-family: var(--font-sans);
+            font-size: 0.95rem;
+            line-height: 1.7;
             background: linear-gradient(135deg, var(--color-dreamy-blue) 0%, var(--color-dreamy-teal) 35%, var(--color-dreamy-purple) 70%, var(--color-dreamy-pink) 100%);
             color: var(--color-soft-dark);
-            line-height: 1.6;
             overflow-x: hidden;
             position: relative;
             margin: 0;
@@ -214,7 +226,7 @@
         h1 {
             font-size: 4rem;
             margin-bottom: 1rem;
-            background: linear-gradient(to right, #7a9fbc, #ff6b9e);
+            background: linear-gradient(to right, #5144c4, #e784d3);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -343,19 +355,27 @@
         }
 
         .hero-text h2 {
-            font-size: 1.5rem;
+            font-family: var(--font-serif);
             font-weight: 400;
+            font-size: 1.8rem;
             color: var(--color-soft-dark);
             margin-bottom: 1rem;
+            line-height: 1.3;
         }
 
         .tagline {
-            font-size: 1.2rem;
+            font-family: 'Audiowide', cursive;
+            font-size: 1.0rem;
             max-width: 500px;
             margin-top: 2rem;
-            font-family: var(--font-serif);
-            font-style: italic;
+            font-style: normal;
             color: var(--color-soft-dark);
+            position: relative;
+            text-shadow: 
+                0 0 10px rgba(227, 193, 116, 0.6),
+                0 0 20px rgba(227, 193, 116, 0.4),
+                0 0 30px rgba(227, 193, 116, 0.2);
+            animation: softGlow 3s ease-in-out infinite;
         }
 
         .profile-image {
@@ -424,7 +444,7 @@
             margin-bottom: 1.5rem;
             font-weight: 700;
             letter-spacing: 1px;
-            text-shadow: 
+            text-shadow:
                 0.5px 0.5px 0 rgba(255, 255, 255, 0.5);
         }
 
@@ -479,7 +499,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 1rem;
-            text-shadow: 
+            text-shadow:
                 0.5px 0.5px 0 rgba(255, 255, 255, 0.5);
         }
 
@@ -621,11 +641,16 @@
         }
 
         .skill-category li::before {
-            content: '★';
-            /* Star symbol */
-            color: var(--color-gold);
+            content: '';
             position: absolute;
-            left: -1.2rem;
+            left: -1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 15px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ff6b9e' d='M12 0l3.09 6.26L22 7.27l-5 4.87 1.18 6.88L12 16l-6.18 3.25L7 10.14 2 5.27l6.91-1.01L12 0z'/%3E%3Cpath fill='none' stroke='%2386c9c9' stroke-width='2' d='M12 0l3.09 6.26L22 7.27l-5 4.87 1.18 6.88L12 16l-6.18 3.25L7 10.14 2 5.27l6.91-1.01L12 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
         }
 
         .skill-category:nth-child(2) li::before {
@@ -712,7 +737,7 @@
             font-weight: 700;
             margin-bottom: 0.5rem;
             color: #4a6c94;
-            text-shadow: 
+            text-shadow:
                 0.5px 0.5px 0 rgba(255, 255, 255, 0.5);
         }
 
@@ -932,16 +957,30 @@
 
         /* --- Custom Stars (fixed, visible, no scroll issues) --- */
         .custom-star {
-            position: fixed; /* Fixed position so stars stay on screen */
-            z-index: 0;      /* Above backgrounds, below main content */
+            position: fixed;
+            /* Fixed position so stars stay on screen */
+            z-index: 0;
+            /* Above backgrounds, below main content */
             animation: starTwinkle 4s infinite ease-in-out;
-            pointer-events: none; /* Don't block clicks */
+            pointer-events: none;
+            /* Don't block clicks */
         }
 
         @keyframes starTwinkle {
-            0% { opacity: 0.4; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1.1); }
-            100% { opacity: 0.4; transform: scale(0.8); }
+            0% {
+                opacity: 0.4;
+                transform: scale(0.8);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+
+            100% {
+                opacity: 0.4;
+                transform: scale(0.8);
+            }
         }
 
         .pink-star {
@@ -968,20 +1007,268 @@
             background-size: contain;
         }
 
-        .star-tiny { width: 10px; height: 10px; }
-        .star-small { width: 15px; height: 15px; }
-        .star-medium { width: 20px; height: 20px; }
-        .star-large { width: 30px; height: 30px; }
+        .star-tiny {
+            width: 10px;
+            height: 10px;
+        }
 
-        .delay-1 { animation-delay: 1s; }
-        .delay-2 { animation-delay: 2s; }
-        .delay-3 { animation-delay: 3s; }
-        .delay-4 { animation-delay: 4s; }
-        .delay-5 { animation-delay: 5s; }
+        .star-small {
+            width: 15px;
+            height: 15px;
+        }
+
+        .star-medium {
+            width: 20px;
+            height: 20px;
+        }
+
+        .star-large {
+            width: 30px;
+            height: 30px;
+        }
+
+        .delay-1 {
+            animation-delay: 1s;
+        }
+
+        .delay-2 {
+            animation-delay: 2s;
+        }
+
+        .delay-3 {
+            animation-delay: 3s;
+        }
+
+        .delay-4 {
+            animation-delay: 4s;
+        }
+
+        .delay-5 {
+            animation-delay: 5s;
+        }
+
+        /* Soft glow animation */
+        @keyframes softGlow {
+            0% {
+                text-shadow:
+                    0 0 10px rgba(227, 193, 116, 0.6),
+                    0 0 20px rgba(227, 193, 116, 0.4),
+                    0 0 30px rgba(227, 193, 116, 0.2);
+            }
+
+            50% {
+                text-shadow:
+                    0 0 15px rgba(227, 193, 116, 0.8),
+                    0 0 25px rgba(227, 193, 116, 0.6),
+                    0 0 35px rgba(227, 193, 116, 0.4);
+            }
+
+            100% {
+                text-shadow:
+                    0 0 10px rgba(227, 193, 116, 0.6),
+                    0 0 20px rgba(227, 193, 116, 0.4),
+                    0 0 30px rgba(227, 193, 116, 0.2);
+            }
+        }
+
+        /* Pink sparkles around tagline */
+        .tagline-sparkle {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .tagline-sparkle::before {
+            content: '✦';
+            color: #ff6b9e;
+            font-size: 14px;
+            filter: drop-shadow(0 0 3px rgba(255, 107, 158, 0.8));
+            animation: sparkleAnimation 3s infinite ease-in-out;
+        }
+
+        @keyframes sparkleAnimation {
+            0% {
+                opacity: 0.3;
+                /* Combine translate and scale */
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+
+            50% {
+                opacity: 1;
+                /* Combine translate and scale */
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+
+            100% {
+                opacity: 0.3;
+                /* Combine translate and scale */
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+        }
+
+        /* Different sparkle delay classes */
+        .sparkle-delay-1 {
+            animation-delay: 0.5s;
+        }
+
+        .sparkle-delay-2 {
+            animation-delay: 1s;
+        }
+
+        .sparkle-delay-3 {
+            animation-delay: 1.5s;
+        }
+
+        .sparkle-delay-4 {
+            animation-delay: 2s;
+        }
+
+        .sparkle-delay-5 {
+            animation-delay: 2.5s;
+        }
+
+        /* Ensure hero-text has relative positioning for sparkle placement */
+        .hero-text {
+            position: relative;
+            /* Optionally add padding if you want more space for the sparkles */
+            /* padding-top: 15px; padding-bottom: 10px; padding-left: 25px; padding-right: 25px; */
+        }
+
+        .h1-sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .h1-sparkle::before {
+            content: '✦';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 10px;
+            line-height: 1;
+            color: var(--color-gold);
+            text-shadow: 0 0 4px rgba(227, 193, 116, 0.9);
+            animation: sparkleAnimation 2.5s infinite ease-in-out alternate;
+        }
+
+        /* Positioning for each star around H1 */
+        .sparkle-pos-1 {
+            top: 0%;
+            left: 5%;
+            animation-delay: 0.2s;
+        }
+
+        .sparkle-pos-1::before {
+            font-size: 8px;
+        }
+
+        .sparkle-pos-2 {
+            top: 15%;
+            right: 0%;
+            animation-delay: 0.8s;
+        }
+
+        .sparkle-pos-2::before {
+            color: var(--color-dreamy-pink);
+            text-shadow: 0 0 4px rgba(245, 191, 210, 0.9);
+        }
+
+        .sparkle-pos-3 {
+            top: 45%;
+            left: -5%;
+            animation-delay: 0.5s;
+        }
+
+        .sparkle-pos-3::before {
+            font-size: 12px;
+        }
+
+        .sparkle-pos-4 {
+            top: 60%;
+            right: 5%;
+            animation-delay: 1.2s;
+        }
+
+        .sparkle-pos-5 {
+            bottom: 5%;
+            left: 20%;
+            animation-delay: 0.3s;
+        }
+
+        .sparkle-pos-5::before {
+            color: var(--color-dreamy-pink);
+            text-shadow: 0 0 4px rgba(245, 191, 210, 0.9);
+            font-size: 9px;
+        }
+
+        .sparkle-pos-6 {
+            bottom: 0%;
+            right: 30%;
+            animation-delay: 1.0s;
+        }
 
         /* Remove existing circular elements and clouds */
-        .cloud, .moon, .celestial, .planet {
-            display: none; /* Hide existing circular elements */
+        .cloud,
+        .moon,
+        .celestial,
+        .planet {
+            display: none;
+            /* Hide existing circular elements */
+        }
+
+        .project-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .project-link:visited {
+            color: inherit;
+        }
+
+        .project-link .project-card {
+            cursor: pointer;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .project-link .project-card:hover {
+            box-shadow: 0 8px 25px rgba(227, 193, 116, 0.3), 0 2px 8px rgba(40, 53, 72, 0.08);
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .pixelify-sans {
+            font-family: "Pixelify Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        /* Add Chakra Petch to specific headings and text */
+        .hero-text h2,
+        .project-card h3,
+        .timeline-content h3,
+        .skill-category h3,
+        .contact-header h2 {
+            font-family: 'Chakra Petch', sans-serif;
+            font-weight: 600;
+            /* Adjust weight as needed */
+        }
+
+        /* Update project type headings */
+        .project-type {
+            font-family: 'Chakra Petch', sans-serif;
+            /* ... rest of existing project-type styles ... */
+        }
+
+        /* Update section headings in skills */
+        .skill-category>h3 {
+            font-family: 'Chakra Petch', sans-serif;
+            font-weight: 600;
+            /* ... rest of existing skill-category h3 styles ... */
         }
     </style>
 </head>
@@ -1050,16 +1337,30 @@
                 </ul>
             </nav>
         </div>
-
+        
         <div class="hero">
             <div class="hero-text">
-                <h1>Jessica Vranek</h1>
+                <h1 class="pixelify-sans">Jessica Vranek</h1>
+                <span class="h1-sparkle sparkle-pos-1"></span>
+                <span class="h1-sparkle sparkle-pos-2"></span>
+                <span class="h1-sparkle sparkle-pos-3"></span>
+                <span class="h1-sparkle sparkle-pos-4"></span>
+                <span class="h1-sparkle sparkle-pos-5"></span>
+                <span class="h1-sparkle sparkle-pos-6"></span>
                 <h2>Solidity Developer & Web3 Engineer</h2>
-                <p class="tagline">Creating frameworks that solve coordination failures through aligned incentives</p>
+                <div style="position: relative;">
+                    <p class="tagline">Creating frameworks that solve coordination failures through aligned incentives
+                    </p>
+                    <div class="tagline-sparkle" style="top: -10px; left: -20px;"></div>
+                    <div class="tagline-sparkle sparkle-delay-1" style="top: 5px; right: -15px;"></div>
+                    <div class="tagline-sparkle sparkle-delay-2" style="bottom: -5px; left: 40px;"></div>
+                    <div class="tagline-sparkle sparkle-delay-3" style="top: -15px; left: 200px;"></div>
+                    <div class="tagline-sparkle sparkle-delay-4" style="bottom: 5px; right: 100px;"></div>
+                    <div class="tagline-sparkle sparkle-delay-5" style="top: 10px; left: 350px;"></div>
+                </div>
             </div>
             <div class="hero-image">
                 <img src="./assets/profilepic.JPG" alt="Jessica Vranek" class="profile-image">
-                <!-- Star corner decorations -->
                 <div class="star-corner star-corner-tl"></div>
                 <div class="star-corner star-corner-tr"></div>
                 <div class="star-corner star-corner-bl"></div>
@@ -1074,20 +1375,22 @@
                 <span class="number">01</span>
                 <h2>About</h2>
             </div>
-
+            
             <div class="section-content two-column">
                 <div class="column">
-                    <h3 class="highlight-text">FROM APPLE MAPS TO WEB3</h3>
-                    <p>I career shifted about a year ago, coming from working on Apple Maps where I managed and worked
-                        on several pilot projects integrating pedestrian experiences and AR technology. With a
-                        background in economics and environmental studies, I was always fascinated by game theory and
-                        how different incentives shape behavior.</p>
+                    <h3 class="highlight-text">FROM MAPS TO MECHANISMS</h3>
+                    <p>My focus shifted from developing geospatial solutions to pursuing my passion of leveraging game
+                        theory to facilitate coordination in decentralized systems. Previously at Apple Maps, I managed
+                        pilot projects integrating pedestrian experiences and AR technology. However, my background in
+                        economics and environmental studies always kept me fascinated by game theory and how incentives
+                        shape behavior.</p>
                 </div>
                 <div class="column">
-                    <p>When I stumbled upon Tim Roughgarden's course on cryptoeconomics, it clicked — seeing how
-                        blockchain could create these entirely new economic systems and coordination mechanisms drew me
-                        in. Now, I'm building frameworks that solve coordination failures through aligned incentives and
-                        creating systems where collaboration naturally leads to positive-sum outcomes.</p>
+                    <p>Discovering Tim Roughgarden's cryptoeconomics course was a turning point – it revealed how
+                        blockchain could architect entirely new coordination mechanisms. Now, about a year into this
+                        career shift, I focus on building and learning about frameworks that leverage aligned incentives
+                        to solve coordination failures, creating systems where collaboration naturally yields
+                        positive-sum outcomes.</p>
                 </div>
             </div>
         </section>
@@ -1097,26 +1400,34 @@
                 <span class="number">02</span>
                 <h2>Projects</h2>
             </div>
-
+            
             <div class="project-grid">
+                <a href="https://github.com/jezzkenarv/MerkleProofVoting" class="project-link" target="_blank"
+                    rel="noopener" aria-label="MerkleProofVoting GitHub">
                 <div class="project-card">
                     <h3>MerkleProofVoting</h3>
                     <p class="project-type">Governance & Voting</p>
-                    <p>A secure, efficient blockchain-based voting system utilizing cryptographic Merkle trees to enable transparent decision-making for DAOs and communities.</p>
+                        <p>A secure, efficient blockchain-based voting system utilizing cryptographic Merkle trees to
+                            enable transparent decision-making for DAOs and communities.</p>
                     <ul class="project-features">
-                        <li>Customizable Proposal Creation</li>
-                        <li>Gasless & Cryptographic Voter Authentication</li>
-                        <li>Tamper-Proof Ballot Security</li>
-                        <li>Transparent Decision Execution</li>
+                            <li>Customizable Proposal Creation</li>
+                            <li>Gasless & Cryptographic Voter Authentication</li>
+                            <li>Tamper-Proof Ballot Security</li>
+                            <li>Transparent Decision Execution</li>
                     </ul>
                 </div>
-
+                </a>
+                
+                <a href="https://github.com/jezzkenarv/Viridian" class="project-link" target="_blank" rel="noopener"
+                    aria-label="Viridian GitHub">
                 <div class="project-card">
                     <h3>Viridian</h3>
                     <p class="project-type">Environmental Impact</p>
-                    <p>A protocol leveraging bonding curves and prediction markets to quantify and tokenize ecological
-                        service impact with the goal to incentivize more global participation in environmental impact
-                        projects.</p>
+                        <p>A protocol leveraging bonding curves and prediction markets to quantify and tokenize
+                            ecological
+                            service impact with the goal to incentivize more global participation in environmental
+                            impact
+                            projects.</p>
                         <ul class="project-features">
                             <li>Market-Driven Conservation Incentives</li>
                             <li>Decentralized Impact Verification</li>
@@ -1124,30 +1435,41 @@
                             <li>Performance-Based Retroactive Rewards</li>
                         </ul>
                 </div>
-
+                </a>
+                
+                <a href="https://github.com/jezzkenarv/Proof-of-Change-V2" class="project-link" target="_blank"
+                    rel="noopener" aria-label="Proof of Change GitHub">
                 <div class="project-card">
                     <h3>Proof of Change</h3>
                     <p class="project-type">Climate Finance</p>
-                    <p>A decentralized GIS platform that verifies and validates real-world environmental impact through SUAVE confidential compute, satellite imagery analysis, and blockchain attestations, powered by Astral Protocol's Logbook and Location Proof Protocol.</p>
-                    <ul class="project-features">
-                        <li>Retroactive Funding for Verified Results</li>
-                        <li>Outcome-Based Incentive Mechanisms</li>
-                        <li>Democratized Access as a Public Good</li>
-                        <li>Transparent Location-Based Contribution Ecosystem </li>
-                    </ul>
+                        <p>A decentralized GIS platform that verifies and validates real-world environmental impact
+                            through SUAVE confidential compute, satellite imagery analysis, and blockchain attestations,
+                            powered by Astral Protocol's Logbook and Location Proof Protocol.</p>
+                        <ul class="project-features">
+                            <li>Retroactive Funding for Verified Results</li>
+                            <li>Outcome-Based Incentive Mechanisms</li>
+                            <li>Democratized Access as a Public Good</li>
+                            <li>Transparent Location-Based Contribution Ecosystem </li>
+                        </ul>
                 </div>
-
+                </a>
+                
+                <a href="https://github.com/jezzkenarv/KyeDAO" class="project-link" target="_blank" rel="noopener"
+                    aria-label="KyeDAO GitHub">
                 <div class="project-card">
                     <h3>KyeDAO</h3>
                     <p class="project-type">Community Finance</p>
-                    <p>A decentralized protocol that modernizes the traditional Korean "Kye" system - a rotating savings and credit association (ROSCA) commonly used in immigrant communities - making community-based lending more secure, transparent, and accessible.</p>
-                    <ul class="project-features">
-                        <li>Community-Governed Lending Cycles</li>
-                        <li>Automated Rotating Credit Distribution</li>
-                        <li>Transparent On-Chain Transaction History</li>
-                        <li>Elimination of Single Points of Failure </li>
-                    </ul>
+                        <p>A decentralized protocol that modernizes the traditional Korean "Kye" system - a rotating
+                            savings and credit association (ROSCA) commonly used in immigrant communities - making
+                            community-based lending more secure, transparent, and accessible.</p>
+                        <ul class="project-features">
+                            <li>Community-Governed Lending Cycles</li>
+                            <li>Automated Rotating Credit Distribution</li>
+                            <li>Transparent On-Chain Transaction History</li>
+                            <li>Elimination of Single Points of Failure </li>
+                        </ul>
                 </div>
+                </a>
             </div>
         </section>
 
@@ -1156,40 +1478,75 @@
                 <span class="number">03</span>
                 <h2>Experience</h2>
             </div>
-
+            
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-date">2023 — Present</div>
+                    <div class="timeline-date">March 3, 2025</div>
                     <div class="timeline-content">
-                        <h3>Solidity Developer</h3>
-                        <p>Building frameworks that solve coordination failures through aligned incentives. Active
-                            participant in the Web3 ecosystem, regularly contributing to hackathons, bootcamps, and
-                            workshops.</p>
+                        <h3>Encode Club: EVM Bootcamp</h3>
+                        <p>Skills Gained: Smart contract development (Solidity), Frontend integration (Next.js,
+                            Scaffold-Eth), Backend development (Node.js, NestJS).</p>
+                        <p>Final Project: MerkleProofVoting - Built a secure and transparent voting dApp utilizing
+                            Merkle trees for efficient voter verification and ballot management.</p>
                     </div>
                 </div>
-
                 <div class="timeline-item">
-                    <div class="timeline-date">2022 — 2023</div>
+                    <div class="timeline-date">November 6 - 10, 2024</div>
                     <div class="timeline-content">
-                        <h3>Encode Club Bootcamps</h3>
-                        <p>Participated in Chain Abstraction Educate and EVM bootcamps. Currently working on improving
-                            MerkleProofVoting, my final project from the EVM bootcamp.</p>
+                        <h3>Womxn Hack by The Phoenix Guild and H.E.R. DAO</h3>
+                        <p>Project: Proof of Change (Winner - Impact Main Track)</p>
+                        <p>Continued development on the Proof of Change protocol, securing the top prize in the main
+                            impact category.</p>
                     </div>
                 </div>
-
+                <div class="timeline-item">
+                    <div class="timeline-date">October 7 - November 7, 2024</div>
+                    <div class="timeline-content">
+                        <h3>Funding the Commons & Earth Commons Hackathon</h3>
+                        <p>Project: Proof of Change (Winner - KlimaDAO Environmental Impact Track & Astral Bounty)</p>
+                        <p>Built a protocol enabling on-chain verification of environmental state changes using
+                            satellite imagery and location proofs.</p>
+                        <p>Integrated with Astral Protocol's Logbook for secure, geotagged data entries and location
+                            proof generation.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">July 29th, 2024</div>
+                    <div class="timeline-content">
+                        <h3>Encode Club: Chain Abstraction Educate Series </h3>
+                        <p>Gained insights into building solutions that mitigate blockchain fragmentation and simplify
+                            cross-chain user experiences.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">July 12 – 14, 2024</div>
+                    <div class="timeline-content">
+                        <h3>ETHGlobal Brussels Hackathon</h3>
+                        <p>Project: BeaKeeper - Developed a smart contract system to efficiently store and verify
+                            historical Ethereum beacon state proofs beyond the standard EIP-4788 limit.</p>
+                        <p>Goal: Streamline access to historical state data without requiring individual proof
+                            submission/verification.</p>
+                        <p>Key Features: Beacon state proof storage/verification, access beyond 8191 blocks, efficient
+                            data retrieval.</p>
+                    </div>
+                </div>
+                
                 <div class="timeline-item">
                     <div class="timeline-date">Previous</div>
                     <div class="timeline-content">
-                        <h3>Team Lead at Apple Maps</h3>
-                        <p>Managed and worked on several pilot projects integrating pedestrian experiences and AR
-                            technology. Hosted weekly meetings with my team and presented our work to stakeholders.</p>
+                        <h3>Team Lead, Apple Maps</h3>
+                        <p>Led pilot projects developing and integrating enhanced pedestrian navigation experiences and
+                            AR technology features.</p>
+                        <p>Managed cross-functional team efforts, facilitated weekly progress meetings, and presented
+                            project updates, demos, and results to stakeholders.</p>
                     </div>
                 </div>
-
+                
                 <div class="timeline-item">
                     <div class="timeline-date">Previous</div>
                     <div class="timeline-content">
-                        <h3>Teller at Wells Fargo</h3>
+                        <h3>Teller, Wells Fargo</h3>
                         <p>Served as an engagement connection point between the company and customers, developing strong
                             customer service and communication skills.</p>
                     </div>
@@ -1202,39 +1559,33 @@
                 <span class="number">04</span>
                 <h2>Skills</h2>
             </div>
-
+            
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3>Technical</h3>
                     <ul>
                         <li>Solidity</li>
-                        <li>Smart Contract Development</li>
-                        <li>DeFi Protocols</li>
-                        <li>DAOs</li>
-                        <li>Ethers.js</li>
-                        <li>Hardhat</li>
+                        <li>Foundry</li>
+                        <li>Scaffold-ETH</li>
+                        <li>Git</li>
+                        <li>Next.js</li>
+                        <li>HTML + CSS</li>
+                        <li>Typescript</li>
+                        <li>Node.js</li>
+                        <li>NestJS</li>
+
                     </ul>
                 </div>
-
+                
                 <div class="skill-category">
                     <h3>Business</h3>
                     <ul>
                         <li>Project Management</li>
                         <li>Team Leadership</li>
                         <li>Presentation</li>
-                        <li>Customer Service</li>
+                        <li>Problem-Solving</li>
                         <li>Cross-team Collaboration</li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Knowledge</h3>
-                    <ul>
-                        <li>Cryptoeconomics</li>
-                        <li>Game Theory</li>
-                        <li>Incentive Mechanism Design</li>
-                        <li>Environmental Economics</li>
-                        <li>Geographic Information Systems</li>
+                        <li>Strategic Thinking</li>
                     </ul>
                 </div>
             </div>
@@ -1247,20 +1598,20 @@
                 <h2>Let's Connect</h2>
                 <p>Looking for opportunities to collaborate on projects that create positive-sum outcomes.</p>
             </div>
-
+            
             <div class="contact-info">
                 <div class="contact-item">
                     <span class="label">Email</span>
                     <a href="mailto:jessicavranek@gmail.com">jessicavranek@gmail.com</a>
                 </div>
-
+                
                 <div class="contact-item">
                     <span class="label">GitHub</span>
                     <a href="https://github.com/jezzkenarv" target="_blank">github.com/jezzkenarv</a>
                 </div>
             </div>
         </div>
-
+        
         <div class="footer-note">
             <p>© 2025 Jessica Vranek. All rights reserved.</p>
         </div>
